@@ -15,12 +15,14 @@ function VideosContainer() {
   ];
   return (
     <div className="flex flex-col w-[100%] items-center">
-      <div>
+      <div className="flex overflow-x-scroll w-[100%] justify-center">
         {buttonData.map((name, idx) => (
           <VideoFilterButtons name={name} key={idx} />
         ))}
       </div>
-      <VideoCardsHolder />
+      <div className="flex justify-center">
+        <VideoCardsHolder />
+      </div>
     </div>
   );
 }

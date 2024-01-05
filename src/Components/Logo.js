@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Logo() {
   return (
@@ -8,10 +9,12 @@ function Logo() {
         alt="logo"
         className="w-[60px]"
       />
-      <h3 className="font-bold text-2xl">YouTube</h3>
+
+      <a href="/">
+        <h3 className="font-bold text-2xl">YouTube</h3>
+      </a>
     </>
   );
 }
 
 export default Logo;
-

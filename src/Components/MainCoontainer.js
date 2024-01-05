@@ -1,12 +1,14 @@
 import React from "react";
 import Slidebar from "./Slidebar";
-import VideosContainer from "./VideosContainer";
+import { Outlet } from "react-router-dom";
+// import VideosContainer from "./VideosContainer";
 
 function MainCoontainer() {
   return (
     <div className="flex">
       <Slidebar />
-      <VideosContainer />
+      {/* <VideosContainer /> */}
+      <Outlet />
     </div>
   );
 }

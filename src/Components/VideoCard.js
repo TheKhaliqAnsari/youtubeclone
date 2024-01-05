@@ -25,25 +25,25 @@ function VideoCard({ data }) {
             width="300px"
             height="200px"
           />
-          <div className="font-bold max-w-[2500px] flex justify-start">
+          <div className="font-bold max-w-[250px] flex justify-start">
             {title}
           </div>
           <div className="text-l font-bold">{channelTitle}</div>
           <div>{Math.floor(statistics.viewCount / 1000) + " H Views"}</div>
         </>
       ) : (
-        <>
+        <div>
           <img
             src={thumbnails.medium.url}
             alt="Video thumbnail"
             className="rounded-lg"
           />
-          <div className="font-bold max-w-[2500px] flex justify-start">
+          <div className="font-bold max-w-[250px] flex justify-start">
             {title}
           </div>
           <div className="text-l font-bold">{channelTitle}</div>
-          <div>{Math.floor(statistics.viewCount / 1000) + " H Views"}</div>
-        </>
+          <div>{Math.floor(statistics.viewCount / 1000) + "K Views"}</div>
+        </div>
       )}
     </div>
   );

@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { YOUTUBE_SEARCH_API } from "../utils/constant";
 
 function Header() {
+  const [search, setSearch] = useState("");
   const dispatch = useDispatch();
+
+  // Slide bar toggle functionality :-
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   };
+
+  const performApiSearch = async (searchString) => {
+    try {
+      const response = await fetch(YOUTUBE_SEARCH_API + searchString);
+      const data = await response.json();
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    performApiSearch(search);
+  }, [search]);
 
   return (
     <div className="flex justify-between p-5 shadow-lg sticky top-0 z-10 bg-white">
@@ -26,6 +44,8 @@ function Header() {
         type="text"
         placeholder="search videos"
         className="border border-black px-4 py-2 w-1/4 rounded-full"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
       />
 
       {/* For user info */}
